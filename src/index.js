@@ -42,7 +42,7 @@ function checksTodoExists(request, response, next) {
   //validacao usuario
   const user = users.find(user => user.username === username)
   if(!user) {
-    return response.status(404).json({message: 'User not found'})
+    return response.status(404).json({error: 'User not found'})
   }
   
   //validacao uuid
@@ -53,7 +53,7 @@ function checksTodoExists(request, response, next) {
   //validacao id
   const todo = user.todos.find(todo => todo.id === id)
   if(!todo) {
-    return response.status(404).json({message: 'Id not found'})
+    return response.status(404).json({error: 'Id not found'})
   }
 
   // if(!user || !todo) {
